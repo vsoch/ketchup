@@ -1,0 +1,32 @@
+# Download Inkscape to create vector graphic
+1) open up your image.  I'm using the Francisco unicorn, because he's nice and liney.
+2) Select the image, and go to Path --> Trace Bitmap
+3) In the Trace Bitmap window, check "remove background"
+4) Click Update --> OK
+5) Now we have a vector graphic! Save as an svg file.
+
+
+# Download blender to make 3d MODEL
+
+http://www.blender.org/download/
+
+Extract it to a folder on your  machine, then run:
+./blender
+
+Once in blender, go to File --> Import and select your svg
+Note that you'll need to zoom likely to see it, and delete the default cube that it gives you.
+
+To zoom in, click shift B and then click and drag to select the origin area (where your imported graphic is)
+I couldn't figure out how to do much, but in the menu bar on the right side of the screen one of the tabs is a line with two points 
+Click here, and then under "Geometry" enter a value between 0 and .2 under "extrude."  
+
+Then copy the plugin from three.js to export from blender.  You'll need to first create the folder "io_mesh_threejs" in blenders script/addon directory, and then copy the files from threejs/utils/exporters/blender/2.65/scripts/addons/io_mesh_threejs to this new directory:
+
+mkdir /home/vanessa/Packages/blender-2.69-linux-glibc211-x86_64/2.69/scripts/addons/io_mesh_threejs
+vanessa@vanessa-ThinkPad-T420 ~/Packages/bwa $ cp /home/vanessa/Documents/Code/Javascript/mrdoob-three.js-eb6c64d/utils/exporters/blender/2.65/scripts/addons/io_mesh_threejs/* /home/vanessa/Packages/blender-2.69-linux-glibc211-x86_64/2.69/scripts/addons/io_mesh_threejs/
+
+Then in blender go to File --> User Preferences, search for "three" (you may need to click the refresh buttom in the bottom right), and then click the check box to the right of the plugin to enable it.  Close user preferences.
+
+Then to export, in blender go to File --> Export --> Three.js (.js)  Done!
+
+# Now prepare out model
